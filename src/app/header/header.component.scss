@@ -1,0 +1,14 @@
+.toolbar{
+  display: flex;
+  justify-content: space-between;
+}
+.logo{
+  max-height: 50px;
+}
+
+
+@media only screen and (max-width: 600px){
+  .logo{
+    max-height: 20px;
+  }
+}
