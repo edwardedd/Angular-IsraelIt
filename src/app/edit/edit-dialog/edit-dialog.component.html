@@ -1,0 +1,51 @@
+<div>
+  <p>id: {{items.id}}</p>
+  <form #formSave="ngForm" (ngSubmit)="onSubmit(formSave)" class="formSave">
+    <mat-form-field>
+      <label class="label" for="name">Please change the name</label>
+      <input
+        matInput
+        ngModel
+        name
+        name="name"
+        id="name"
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <label class="label" for="description">Please change the description</label>
+      <input
+        matInput
+        [ngModel]="items.description"
+        name="description"
+        id="description"
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <label class="label" for="createdAt">Please change the date</label>
+      <input
+        matInput
+        type="date"
+        [matDatepicker]="picker"
+        ngModel
+        name="createdAt"
+        id="createdAt"
+      >
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker startView="year" [startAt]="items.createdAt"></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <label class="label" for="editedAt">Please change the date</label>
+      <input
+        matInput
+        type="date"
+        [matDatepicker]="picker1"
+        [ngModel]="items.editedAt"
+        name="editedAt"
+        id="editedAt"
+      >
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1 startView="year" [startAt]="items.editedAt"></mat-datepicker>
+    </mat-form-field>
+    <button mat-raised-button color="warn" type="submit"> save</button>
+  </form>
+</div>

@@ -1,0 +1,70 @@
+<form #formDialog="ngForm" (ngSubmit)="onSubmit(formDialog)">
+  <mat-form-field>
+    <label for="idValue">Fill the id</label>
+      <input
+        matInput
+        type="number"
+        class="idValue"
+        id="idValue"
+        ngModel
+        required
+        idValue
+        name="idValue"
+      >
+  </mat-form-field>
+  <mat-form-field>
+    <label for="name">Fill the name</label>
+      <input
+        matInput
+        type="text"
+        class="name"
+        id="name"
+        ngModel
+        required
+        name
+        name="name"
+      >
+  </mat-form-field>
+  <mat-form-field>
+    <label for="description">Fill the description</label>
+      <input
+        matInput
+        type="text"
+        id="description"
+        ngModel
+        required
+        description
+        name="description"
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <label for="createdAt">Fill the date</label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          id="createdAt"
+          ngModel
+          required
+          description
+          name="createdAt"
+        >
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <label for="editedAt">Fill the date</label>
+        <input
+          matInput
+          [matDatepicker]="picker1"
+          id="editedAt"
+          ngModel
+          required
+          description
+          name="editedAt"
+        >
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1 startView="year" [startAt]="startDate"></mat-datepicker>
+    </mat-form-field>
+    <button mat-raised-button type="submit" [disabled]="!formDialog.valid">Add</button>
+    {{date| date: 'dd/MM/yyyy'}}
+</form>

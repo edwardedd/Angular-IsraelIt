@@ -1,29 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Items } from '../services/Items';
+import { ItemsService } from '../services/items.service';
+import { DialogComponent } from './dialog/dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { dataService } from '../services/data.service';
 
-export interface ItemsElement {
-  id: number;
-  name: string;
-  description: string;
-  createdAt: string;
-  editedAt: string;
-}
-
-const items: ItemsElement[] = [
-  {
-    "id": 1,
-    "name":"book",
-    "description":"fantasy",
-    "createdAt":"10.02.2020",
-    "editedAt":"11.02.2020"
-  },
-  {
-    "id": 2,
-    "name":"book",
-    "description":"uthopy",
-    "createdAt":"10.02.2020",
-    "editedAt":"11.02.2020"
-  }
-]
 
 @Component({
   selector: 'app-table',
@@ -31,12 +13,56 @@ const items: ItemsElement[] = [
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
-  dataSource = items;
+  items: Items[] = [];
   displayedColumns: string[] = ['id', 'name', 'description', 'createdAt', 'editedAt'];
 
-  constructor() { }
+  constructor(
+    private itemServise: ItemsService,
+    private dialog:MatDialog,
+    private router:Router,
+    private dataService:dataService
+  ) { }
 
   ngOnInit(): void {
+    this.itemServise.getAllItems().subscribe
+    (
+      (response) =>
+      {
+        this.items = response
+      },
+      (error) => console.log(error)
+    )
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogComponent)
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`); // Pizza!
+    });
+  }
+
+  redirect() {
+    this.router.navigate(['/auth'])
+  }
+
+  sendData(item) {
+    console.log(item)
+    
+    this.dataService.addData(item)
+    this.router.navigate(['/edit'])
+
+  }
+
+  editItem(e) {
+    e.stopPropagation();
+    console.log('123')
+  }
+
+  deleteItem(e, id) {
+    e.stopPropagation();
+    console.log(id)
+    this.itemServise.deleteItems(id).subscribe()
   }
 
 }
