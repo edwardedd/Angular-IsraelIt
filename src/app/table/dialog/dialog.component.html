@@ -45,6 +45,7 @@
           id="createdAt"
           ngModel
           required
+          type="date"
           description
           name="createdAt"
         >
@@ -56,6 +57,7 @@
         <input
           matInput
           [matDatepicker]="picker1"
+          type="date"
           id="editedAt"
           ngModel
           required
@@ -66,5 +68,5 @@
       <mat-datepicker #picker1 startView="year" [startAt]="startDate"></mat-datepicker>
     </mat-form-field>
     <button mat-raised-button type="submit" [disabled]="!formDialog.valid">Add</button>
-    {{date| date: 'dd/MM/yyyy'}}
+    <p class="alert" *ngIf="errorMes">{{errorMes}}</p>
 </form>

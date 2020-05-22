@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthComponent } from './auth/auth.component';
 import { EditComponent } from './edit/edit.component';
 import { EditDialogComponent } from './edit/edit-dialog/edit-dialog.component';
+import { DeleteDialogComponent } from './table/delete-dialog/delete-dialog.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { EditDialogComponent } from './edit/edit-dialog/edit-dialog.component';
     DialogComponent,
     EditComponent,
     AuthComponent,
-    EditDialogComponent
+    EditDialogComponent,
+    DeleteDialogComponent
   ],
   entryComponents: [DialogComponent],
   imports: [

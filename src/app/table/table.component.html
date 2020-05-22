@@ -1,39 +1,14 @@
-<!-- <table mat-table [dataSource]="items" class="mat-elevation-z8"> -->
-<table >
-  <!-- <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-  </ng-container>
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-  </ng-container>
-  <ng-container matColumnDef="description">
-    <th mat-header-cell *matHeaderCellDef> Weight </th>
-    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
-  </ng-container>
-  <ng-container matColumnDef="createdAt">
-    <th mat-header-cell *matHeaderCellDef> Symbol </th>
-    <td mat-cell *matCellDef="let element"> {{element.createdAt}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="editedAt">
-    <th mat-header-cell *matHeaderCellDef> Symbol </th>
-    <td mat-cell *matCellDef="let element"> {{element.editedAt}} </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
-  <tr *ngFor='let item of items' (click)="sendData(item)">
-
-    <td>{{item.id}}</td>
-    <td>{{item.name}}</td>
-    <td>{{item.description}}</td>
-    <td>{{item.createdAt| date: 'dd.MM.yyyy'}}</td>
-    <td>{{item.editedAt| date: 'dd.MM.yyyy'}}</td>
-    <button mat-raised-button color="accent"(click)="sendData(item)">Edit</button>
-    <button mat-raised-button color="warn"(click)="deleteItem($event, item.id)">Delete</button>
-  </tr>
-
-</table>
-<button mat-raised-button color="accent"(click)="openDialog()"> add row</button>
+<div class='tableComponent'>
+  <table >
+    <tr class="row" *ngFor='let item of items' (click)="sendData(item)">
+      <td>{{item.id}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.description}}</td>
+      <td>{{item.createdAt| date: 'dd.MM.yyyy'}}</td>
+      <td>{{item.editedAt| date: 'dd.MM.yyyy'}}</td>
+      <button mat-raised-button color="accent"(click)="sendData(item)">Edit</button>
+      <button mat-raised-button color="warn"(click)="deleteItem($event, item.id)">Delete</button>
+    </tr>
+  </table>
+  <button mat-raised-button class="openDialog"color="accent"(click)="openDialog()">Add row</button>
+</div>

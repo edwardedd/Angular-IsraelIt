@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Items } from './Items';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +42,10 @@ export class ItemsService {
         editedAt: editedAt
       }
     )
+  }
+
+  private errorMessage(errorRes:HttpErrorResponse){
+    let errorMes = 'This email exists already';
   }
 }
 

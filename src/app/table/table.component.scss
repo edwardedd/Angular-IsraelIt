@@ -1,11 +1,25 @@
 table{
   width: 100%;
+  border-collapse: collapse;
 }
-tr{
-  text-align: center;
-  border: 1px solid black;
+.tableComponent{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.row{
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid black;
+  align-items: center;
 }
 
 td{
-  border: 1px solid black;
+  width: 15%;
+}
+
+.openDialog{
+  width: 40%;
+  margin-top: 20px;
 }

@@ -13,6 +13,7 @@ import {  MatDialogRef } from '@angular/material/dialog';
 export class DialogComponent implements OnInit {
   startDate = new Date(2020, 0, 1);
   date: Date = null
+  errorMes:string = null
   @Input() table: TableComponent
 
   constructor
@@ -32,6 +33,16 @@ export class DialogComponent implements OnInit {
      (form.value.idValue,form.value.name, form.value.description, createdAt, editedAt).subscribe(coll=>{
        console.log('111',coll)
        window.location.reload()
+     },
+     error=>{
+       console.log(error)
+       if(!error.error){
+        this.errorMes = 'Unknown error'
+       }
+       switch(error.statusText){
+         case 'Internal Server Error':
+           this.errorMes = 'Insert failed,duplicate Id.please,try another Id'
+       }
      })
 
      form.reset();

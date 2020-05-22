@@ -3,6 +3,7 @@ import { dataService } from '../services/data.service';
 import { Items } from '../services/Items';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit',
@@ -12,7 +13,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class EditComponent implements OnInit {
   items:any = []
 
-  constructor(private dataService:dataService, private dialog: MatDialog) { }
+  constructor(private dataService:dataService, private dialog: MatDialog,private router:Router)  { }
 
   ngOnInit(): void {
     this.items = this.dataService.getData();
@@ -20,7 +21,11 @@ export class EditComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(EditDialogComponent)
+    const dialogDataRef = this.dialog.open(EditDialogComponent);
+    dialogDataRef.afterClosed().subscribe(result => {
+      console.log('dialog was closed');
+      this.router.navigate(['/'])
+    });
   }
 
 }

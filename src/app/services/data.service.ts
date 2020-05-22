@@ -4,23 +4,21 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class dataService {
-  // private id: number = null;
-  // private name: string = null;
-  // private description: string = null;
-  // private createdAt: Date = null;
-  // private editedAt: Date = null;
+  private id: number = null;
   data: any = []
   
   getData(): string[] {
-    // this.data = [ this.id,this.name, this.description, this.createdAt, this.editedAt]
     return this.data;
-}
-addData(dat:any){
-  this.data = dat
-    // this.id = id;
-    // this.name = name;
-    // this.description = description;
-    // this.createdAt = createdAt;
-    // this.editedAt = editedAt
-}
+  }
+  addData(dat:any){
+    this.data = dat
+  }
+
+  getId():number {
+    return this.id
+  }
+
+  addId(id:number){
+    this.id = id;
+  }
 }

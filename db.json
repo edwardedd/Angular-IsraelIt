@@ -1,25 +1,46 @@
 {
   "items": [
     {
+      "id": 1,
+      "name": "Karpaty",
+      "description": "Lviv",
+      "createdAt": "2020-06-22T21:00:00.000Z",
+      "editedAt": "2020-09-05T21:00:00.000Z"
+    },
+    {
       "id": 2,
-      "name": "book",
-      "description": "uthopy",
-      "createdAt": "2020-01-04T22:00:00.000Z",
-      "editedAt": "2020-12-24T22:00:00.000Z"
+      "name": "Dynamo",
+      "description": "Kyiv",
+      "createdAt": "2020-05-21T21:00:00.000Z",
+      "editedAt": "2020-05-21T21:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "name": "Bayern",
+      "description": "Munich",
+      "createdAt": "2020-05-21T21:00:00.000Z",
+      "editedAt": "2020-05-21T21:00:00.000Z"
     },
     {
       "id": 4,
-      "name": "olga",
-      "description": "qqqqq",
-      "createdAt": "2020-05-19T21:00:00.000Z",
-      "editedAt": "2020-06-02T21:00:00.000Z"
+      "name": "Arsenal",
+      "description": "London",
+      "createdAt": "2020-05-21T21:00:00.000Z",
+      "editedAt": "2020-05-21T21:00:00.000Z"
     },
     {
-      "name": "olga",
-      "description": "qqqqq",
-      "createdAt": "2020-05-19T21:00:00.000Z",
-      "editedAt": "2020-10-27T22:00:00.000Z",
-      "id": 5
+      "id": 5,
+      "name": "Lechia",
+      "description": "Gdansk",
+      "createdAt": "2020-05-21T21:00:00.000Z",
+      "editedAt": "2020-05-21T21:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "name": "Dynamo",
+      "description": "Tbilisi",
+      "createdAt": "2020-05-21T21:00:00.000Z",
+      "editedAt": "2020-05-21T21:00:00.000Z"
     }
   ]
 }

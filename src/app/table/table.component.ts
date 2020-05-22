@@ -5,6 +5,7 @@ import { DialogComponent } from './dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { dataService } from '../services/data.service';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 
 
 @Component({
@@ -36,9 +37,9 @@ export class TableComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(DialogComponent)
-
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`); // Pizza!
+      console.log('dialog was closed');
+      this.router.navigate(['/'])
     });
   }
 
@@ -47,8 +48,6 @@ export class TableComponent implements OnInit {
   }
 
   sendData(item) {
-    console.log(item)
-    
     this.dataService.addData(item)
     this.router.navigate(['/edit'])
 
@@ -61,8 +60,8 @@ export class TableComponent implements OnInit {
 
   deleteItem(e, id) {
     e.stopPropagation();
-    console.log(id)
-    this.itemServise.deleteItems(id).subscribe()
+    this.dataService.addId(id)
+    const deleteDialogRef = this.dialog.open(DeleteDialogComponent)
   }
 
 }

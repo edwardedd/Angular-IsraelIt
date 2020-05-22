@@ -9,6 +9,7 @@
         name
         name="name"
         id="name"
+        required
       >
     </mat-form-field>
     <mat-form-field>
@@ -18,17 +19,20 @@
         [ngModel]="items.description"
         name="description"
         id="description"
+        required
       >
     </mat-form-field>
     <mat-form-field>
       <label class="label" for="createdAt">Please change the date</label>
       <input
         matInput
-        type="date"
         [matDatepicker]="picker"
         ngModel
+        createdAt
         name="createdAt"
         id="createdAt"
+        type="date"
+        required
       >
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker startView="year" [startAt]="items.createdAt"></mat-datepicker>
@@ -42,10 +46,11 @@
         [ngModel]="items.editedAt"
         name="editedAt"
         id="editedAt"
+        required
       >
       <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
       <mat-datepicker #picker1 startView="year" [startAt]="items.editedAt"></mat-datepicker>
     </mat-form-field>
-    <button mat-raised-button color="warn" type="submit"> save</button>
+    <button mat-raised-button color="warn" type="submit">Save</button>
   </form>
 </div>
